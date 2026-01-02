@@ -36,7 +36,35 @@ Web oficial del universo Paquito, diseñada como una experiencia inmersiva y est
     - `trailingSlash: true` para compatibilidad con servidores Apache/Hostinger.
     - Imágenes no optimizadas (`unoptimized: true`) para evitar dependencia de servidor de imágenes de Next.js.
 
-## 📦 Instalación y Desarrollo Local
+## 📋 Requisitos Previos
+
+Para ejecutar o desarrollar este proyecto, necesitas:
+
+### Opción A: Desarrollo Completo (Recomendado)
+- **[Node.js](https://nodejs.org/)** (v18 o superior).
+- **npm** (viene con Node.js).
+
+### Opción B: Solo Previsualización (Sin Node.js)
+- **[Python](https://www.python.org/)** (v3.x) - *Solo necesario si quieres previsualizar la build estática localmente sin instalar Node.*
+
+---
+
+## 🚀 Guía de Inicio Rápido
+
+### 1. Previsualización Rápida (Sin instalar dependencias)
+Si ya tienes la carpeta `frontend/out` generada y quieres ver la web en cualquier máquina sin instalar Node.js:
+
+1.  Abre una terminal en la carpeta `frontend/out`.
+2.  Ejecuta el servidor simple de Python:
+    ```bash
+    python -m http.server
+    ```
+3.  Abre `http://localhost:8000` en tu navegador.
+
+*Nota: Esto sirve para verificar la build final que se subirá al hosting.*
+
+### 2. Instalación y Desarrollo (Modo Completo)
+Si quieres editar el código y desarrollar:
 
 1.  **Clonar el repositorio**:
     ```bash
@@ -44,7 +72,7 @@ Web oficial del universo Paquito, diseñada como una experiencia inmersiva y est
     cd paquito_web_structure
     ```
 
-2.  **Instalar dependencias**:
+2.  **Instalar dependencias de Frontend**:
     ```bash
     cd frontend
     npm install
@@ -55,6 +83,15 @@ Web oficial del universo Paquito, diseñada como una experiencia inmersiva y est
     npm run dev
     ```
     Visita `http://localhost:3000`.
+
+### 3. Backend (Opcional / Legacy)
+El backend en Python actualmente **no se utiliza** en la versión estática (v1.0), pero el código se mantiene como referencia.
+- **Requisitos**: Python 3.9+, pip.
+- **Instalación**:
+  ```bash
+  cd backend
+  pip install -r requirements.txt
+  ```
 
 ## 🏗 Construcción y Despliegue (Hostinger)
 
