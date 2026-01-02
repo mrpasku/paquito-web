@@ -1,0 +1,66 @@
+﻿
+> frontend-paquito-web@0.1.0 build
+> next build
+
+   Ôû▓ Next.js 14.0.3
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully
+   Linting and checking validity of types ...
+
+./components/AffiliateProduct.tsx
+34:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/ProductShowcase.tsx
+50:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/35) ...
+
+   Generating static pages (8/35) 
+
+   Generating static pages (17/35) 
+
+   Generating static pages (26/35) 
+
+ Ô£ô Generating static pages (35/35) 
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+Ôöî Ôùï /                                    2.8 kB          105 kB
+Ôö£ Ôùï /_not-found                          870 B          84.9 kB
+Ôö£ ÔùÅ /[character]                         197 B           103 kB
+Ôö£   Ôö£ /pablito
+Ôö£   Ôö£ /sarita
+Ôö£   Ôöö /abuela
+Ôö£ Ôùï /api/track                           0 B                0 B
+Ôö£ ÔùÅ /blog/[slug]                         2.27 kB        93.3 kB
+Ôö£   Ôö£ /blog/que-es-asmr-guia-completa
+Ôö£   Ôö£ /blog/mejores-microfonos-asmr
+Ôö£   Ôö£ /blog/setup-asmr-profesional
+Ôö£   Ôöö [+11 more paths]
+Ôö£ Ôùï /cursos                              2.01 kB        98.1 kB
+Ôö£ ÔùÅ /cursos/[slug]                       2.12 kB        98.2 kB
+Ôö£   Ôö£ /cursos/asmr-desde-cero
+Ôö£   Ôö£ /cursos/ia-para-creadores
+Ôö£   Ôöö /cursos/monetizacion-contenido
+Ôö£ Ôùï /ofertas                             1.86 kB        85.9 kB
+Ôö£ ÔùÅ /ofertas/[id]                        138 B          84.2 kB
+Ôö£   Ôö£ /ofertas/auriculares-sony
+Ôö£   Ôö£ /ofertas/microfono-rode
+Ôö£   Ôö£ /ofertas/camara-sony-zv
+Ôö£   Ôöö [+3 more paths]
+Ôö£ Ôùï /robots.txt                          0 B                0 B
+Ôöö Ôùï /sitemap.xml                         0 B                0 B
++ First Load JS shared by all            84 kB
+  Ôö£ chunks/472-89a49e2d35565ca6.js       28.9 kB
+  Ôö£ chunks/fd9d1056-182f791e0c122e68.js  53.3 kB
+  Ôö£ chunks/main-app-def62c015b067fa3.js  219 B
+  Ôöö chunks/webpack-fa185ac618bda061.js   1.68 kB
+
+
+Ôùï  (Static)  prerendered as static content
+ÔùÅ  (SSG)     prerendered as static HTML (uses getStaticProps)
+

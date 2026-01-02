@@ -3,17 +3,209 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  /* Paleta Jungle Premium - Base */
+  --color-jungle-900: #43302b;
+  --color-jungle-950: #1a1210;
+
+  /* Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1210;
+  --bg-card: #151515;
+
+  /* Text */
+  --text-primary: #fef3c7;
+  --text-secondary: #a8a29e;
+  --text-muted: #78716c;
+}
+
+/* ============================================
+   SYSTEM MULTI-PERSONAJE - CSS Variables
+   ============================================ */
+
+/* Paquito (Default) - Amber/Orange */
+:root,
+[data-character="paquito"] {
+  --char-primary: #f59e0b;
+  --char-primary-rgb: 245, 158, 11;
+  --char-glow: #ea580c;
+  --char-glow-rgb: 234, 88, 12;
+  --char-light: #fbbf24;
+  --char-dark: #d97706;
+  --char-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);
+
+  /* Legacy compatibility */
+  --color-paquito-500: #f59e0b;
+  --color-paquito-600: #d97706;
+  --color-cta: #ea580c;
+  --color-cta-hover: #c2410c;
+}
+
+/* Pablito - Light Blue/Sky */
+[data-character="pablito"] {
+  --char-primary: #38bdf8;
+  --char-primary-rgb: 56, 189, 248;
+  --char-glow: #0ea5e9;
+  --char-glow-rgb: 14, 165, 233;
+  --char-light: #7dd3fc;
+  --char-dark: #0284c7;
+  --char-gradient: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #0ea5e9 100%);
+
+  --color-paquito-500: #38bdf8;
+  --color-paquito-600: #0284c7;
+  --color-cta: #0ea5e9;
+  --color-cta-hover: #0369a1;
+}
+
+/* Sarita - Light Pink */
+[data-character="sarita"] {
+  --char-primary: #f472b6;
+  --char-primary-rgb: 244, 114, 182;
+  --char-glow: #ec4899;
+  --char-glow-rgb: 236, 72, 153;
+  --char-light: #f9a8d4;
+  --char-dark: #db2777;
+  --char-gradient: linear-gradient(135deg, #f9a8d4 0%, #f472b6 50%, #ec4899 100%);
+
+  --color-paquito-500: #f472b6;
+  --color-paquito-600: #db2777;
+  --color-cta: #ec4899;
+  --color-cta-hover: #be185d;
+}
+
+/* La Abuela - Dark Pink/Rose */
+[data-character="abuela"] {
+  --char-primary: #be185d;
+  --char-primary-rgb: 190, 24, 93;
+  --char-glow: #9d174d;
+  --char-glow-rgb: 157, 23, 77;
+  --char-light: #f472b6;
+  --char-dark: #831843;
+  --char-gradient: linear-gradient(135deg, #f472b6 0%, #be185d 50%, #9d174d 100%);
+
+  --color-paquito-500: #be185d;
+  --color-paquito-600: #831843;
+  --color-cta: #9d174d;
+  --color-cta-hover: #831843;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, #1a1612 100%);
+  min-height: 100vh;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(26, 18, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+.glass-dark {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.05);
+}
+
+/* Glow Effects */
+.glow-amber {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 0 30px rgba(234, 88, 12, 0.4);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.text-glow-intense {
+  text-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 0 0 60px rgba(245, 158, 11, 0.4);
+}
+
+/* Gradient Text */
+.gradient-text-paquito {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #ea580c, #d97706);
+  color: white;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(234, 88, 12, 0.4);
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(234, 88, 12, 0.6);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  color: #fbbf24;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+  background: rgba(69, 26, 3, 0.3);
+  border-color: #f59e0b;
+}
+
+/* Card Styles */
+.card-premium {
+  background: rgba(26, 18, 16, 0.8);
+  border: 1px solid rgba(120, 53, 15, 0.3);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card-premium:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-jungle-900);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-paquito-600);
+}
+
+/* Selection */
+::selection {
+  background: rgba(245, 158, 11, 0.3);
+  color: #fef3c7;
 }

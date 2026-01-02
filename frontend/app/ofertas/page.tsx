@@ -1,39 +1,54 @@
 import { getOffers } from '@/lib/api';
-import { Metadata } from 'next';
-import AdPlaceholder from '@/components/AdPlaceholder';
 import ProductShowcase from '@/components/ProductShowcase';
+import AdPlaceholder from '@/components/AdPlaceholder';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Ofertas Exclusivas',
-    description: 'Las mejores ofertas y descuentos seleccionados para ti.',
+    title: 'Ofertas Exclusivas - Paquito ASMR',
+    description: 'Las mejores ofertas seleccionadas por Paquito. Auriculares, micrófonos, snacks y más con descuentos especiales.',
+    openGraph: {
+        title: 'Ofertas Exclusivas - Paquito ASMR',
+        description: 'Las mejores ofertas seleccionadas por Paquito. Auriculares, micrófonos, snacks y más.',
+        type: 'website',
+    },
 };
 
 export default async function OfertasPage() {
     const offers = await getOffers();
 
     return (
-        <div className="container mx-auto py-10 px-4">
-            <h1 className="text-4xl font-bold mb-8 text-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">
-                    Ofertas Destacadas
-                </span>
-            </h1>
+        <div className="min-h-screen pt-24 pb-16">
+            <div className="container mx-auto px-4">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-paquito-400 to-cta">
+                            Ofertas Exclusivas
+                        </span>
+                    </h1>
+                    <p className="text-xl text-jungle-400 max-w-2xl mx-auto">
+                        Las mejores ofertas que he seleccionado para ti. Productos que uso y recomiendo.
+                    </p>
+                </div>
 
-            <div className="max-w-4xl mx-auto mb-12">
-                <p className="text-xl text-gray-400 text-center">
-                    Selección manual de los mejores productos con descuentos verificados.
+                {/* Ad Banner */}
+                <AdPlaceholder slot="ofertas-top" className="mb-8" />
+
+                {/* Products Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {offers.map((offer) => (
+                        <ProductShowcase key={offer.id} product={offer} />
+                    ))}
+                </div>
+
+                {/* Ad Banner */}
+                <AdPlaceholder slot="ofertas-bottom" className="mt-12" />
+
+                {/* Affiliate Disclaimer */}
+                <p className="text-center text-sm text-jungle-600 mt-8 italic">
+                    * Algunos enlaces pueden ser de afiliado. Esto nos ayuda a mantener el contenido gratuito.
                 </p>
             </div>
-
-            <AdPlaceholder slot="5555555555" />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {offers.map((offer) => (
-                    <ProductShowcase key={offer.id} product={offer} />
-                ))}
-            </div>
-
-            <AdPlaceholder slot="6666666666" />
         </div>
-    )
+    );
 }

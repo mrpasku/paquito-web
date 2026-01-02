@@ -4,20 +4,24 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import AdSense from '@/components/AdSense'
+import CharacterProvider from '@/components/CharacterProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-display',
+})
 
 export const metadata: Metadata = {
     title: {
-        default: 'Paquito Web | Ofertas y Blog de Afiliación',
-        template: '%s | Paquito Web',
+        default: 'Paquito Live ASMR | Ofertas y Blog',
+        template: '%s | Paquito Live ASMR',
     },
-    description: 'El mejor sitio para encontrar ofertas exclusivas y aprender sobre marketing de afiliados.',
+    description: 'El macaco más relajante de internet. Ofertas exclusivas, contenido ASMR y las mejores recomendaciones.',
     openGraph: {
-        title: 'Paquito Web',
-        description: 'Ofertas exclusivas y contenido premium.',
-        url: 'https://paquito-web.vercel.app',
-        siteName: 'Paquito Web',
+        title: 'Paquito Live ASMR',
+        description: 'El macaco más relajante de internet. Ofertas exclusivas y contenido premium.',
+        url: 'https://paquitoliveasmr.com',
+        siteName: 'Paquito Live ASMR',
         locale: 'es_ES',
         type: 'website',
     },
@@ -33,15 +37,21 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="es">
-            <body className={inter.className}>
-                <AdSense pId="ca-pub-XXXXXXXXXXXXXXXX" />
-                <Header />
-                <main className="min-h-screen bg-gray-950 text-white">
-                    {children}
-                </main>
-                <Footer />
+        <html lang="es" className={inter.variable}>
+            <head>
+                <meta name="theme-color" content="#f59e0b" />
+            </head>
+            <body className={`${inter.className} antialiased`}>
+                <CharacterProvider>
+                    <AdSense pId="ca-pub-XXXXXXXXXXXXXXXX" />
+                    <Header />
+                    <main className="min-h-screen">
+                        {children}
+                    </main>
+                    <Footer />
+                </CharacterProvider>
             </body>
         </html>
     )
 }
+

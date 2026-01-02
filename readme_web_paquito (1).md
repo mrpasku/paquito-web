@@ -16,6 +16,16 @@ Este documento define los **próximos pasos operativos**, ordenados y accionable
    - Portal para marcas.
    - Panel de usuario.
    - Expansión futura vía API.
+1.  **Landing principal** con enlaces oficiales, CTA y branding.
+2.  **Blog SEO** con artículos optimizados para tráfico orgánico.
+3.  **Sistema de afiliados** (páginas de producto + tracking de clicks).
+4.  **Integración con Google AdSense** para monetización.
+5.  Estructura base preparada para:
+    -   Cursos digitales.
+    -   Tienda dropshipping.
+    -   Portal para marcas.
+    -   Panel de usuario.
+    -   Expansión futura vía API.
 
 ---
 
@@ -29,7 +39,9 @@ Este documento define los **próximos pasos operativos**, ordenados y accionable
   - `/app/(landing)`
   - `/app/blog`
   - `/app/ofertas`
+  - `/app/cursos`
   - `/components`
+  - `/content`
   - `/lib`
   - `/public`
 
@@ -121,11 +133,34 @@ Tablas iniciales:
 ## 5. Preparación para módulos futuros
 La arquitectura quedará preparada para añadir:
 
-### Cursos digitales
-- Login + auth.
-- Sistema de pagos (Stripe).
-- Dashboard de usuarios.
-- Contenido premium.
+### Cursos digitales ✅ (IMPLEMENTADO)
+- Sistema de cursos con soporte para videos y PDFs.
+- Página de listado `/cursos` con categorías.
+- Páginas de detalle `/cursos/[slug]` con módulos y lecciones.
+- Componentes: `CourseCard.tsx`, `CourseContent.tsx`.
+- Contenido placeholder listo para añadir cursos reales.
+- **Pendiente**: Login + auth, sistema de pagos (Stripe), dashboard de usuarios.
+
+### Sistema Multi-Personaje ✅ (IMPLEMENTADO)
+Sistema escalable para gestionar múltiples personajes con temas dinámicos.
+
+#### Personajes disponibles:
+| Personaje | Ruta | Tema | Descripción |
+|-----------|------|------|-------------|
+| **Paquito** | `/` | 🟠 Amber/Naranja | Personaje principal |
+| **Pablito** | `/pablito` | 🔵 Azul | Segundo al mando |
+| **Sarita** | `/sarita` | 🩷 Rosa | Dulzura y relajación |
+| **La Abuela** | `/abuela` | 🌹 Rosa oscuro | Sabiduría y calidez |
+
+#### Características:
+- **Hero Solar System 3D**: Visualización épica estilo sistema solar.
+  - Partículas animadas con colores del personaje activo.
+  - Planetas 3D con perspectiva, blur por profundidad.
+  - Posición frontal = 30% más grande, nítido, opaco.
+- **Theming dinámico**: CSS variables que cambian según personaje.
+- **Rutas preparadas**: Estructura para `/[personaje]/ofertas`, `/[personaje]/blog`.
+- Componentes: `SolarSystemHero.tsx`, `CharacterProvider.tsx`.
+- Configuración: `/lib/characters.ts` con datos de todos los personajes.
 
 ### Tienda dropshipping
 - Integración con Shopify/Printful API.
@@ -157,6 +192,9 @@ La arquitectura quedará preparada para añadir:
 - [x] Sistema de afiliados con tracking (Backend listo).
 - [x] Sitemap.xml generado (Dinámico con Next.js).
 - [x] Robots.txt configurado.
+- [x] **Sección de Cursos implementada** (videos + PDFs, placeholder content).
+- [x] **Sistema Multi-Personaje** (4 personajes con temas dinámicos).
+- [x] **Hero Solar System 3D** (partículas animadas, planetas 3D).
 
 ### Monetización
 - [ ] Solicitar Google AdSense.
@@ -164,9 +202,9 @@ La arquitectura quedará preparada para añadir:
 - [ ] Ajustar posición de anuncios.
 
 ### SEO
-- [ ] Titles/metas dinámicos.
-- [ ] OpenGraph.
-- [ ] Schema.
+- [x] Titles/metas dinámicos.
+- [x] OpenGraph.
+- [ ] Schema JSON-LD.
 - [ ] Core Web Vitals verificados.
 
 ---
@@ -262,15 +300,26 @@ def track_click(id: str, request: Request):
 
 Basado en el estilo de la imagen: tonos cálidos, iluminación naranja, ambiente ASMR, estética premium.
 
-#### HERO visual
-- Fondo: textura madera oscura + glow suave.
-- Personaje en primer plano.
-- Tipografía con efecto neón.
-- CTA principales:
-  - Discord oficial.
-  - Ofertas/recomendaciones.
-  - Redes.
-- Bloque AdSense bajo el hero.
+#### HERO visual — Sistema Solar 3D ✅
+- **Fondo**: Espacio estrellado con partículas animadas.
+- **Partículas**: 150 estrellas 3D con colores del personaje activo.
+- **Planetas**: 4 esferas representando cada personaje.
+  - Front: 130% escala, nítido, 100% opaco.
+  - Laterales: 85% escala, blur sutil.
+  - Fondo: 60% escala, más arriba, blur mayor.
+- **Sol central**: Glow pulsante con color del personaje.
+- **Órbita visible**: Anillo elíptico con perspectiva.
+- Click en cualquier planeta → Navegación a su página.
+
+#### Componentes Multi-Personaje
+```
+components/
+├── SolarSystemHero.tsx   # Hero principal con sistema solar 3D
+├── CharacterProvider.tsx  # Context para theming dinámico
+├── CharacterSphere.tsx    # Esfera individual de personaje
+lib/
+├── characters.ts          # Configuración de todos los personajes
+```
 
 #### Secciones clave
 - **Redes oficiales** con iconcards premium.

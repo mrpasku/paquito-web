@@ -5,11 +5,12 @@ type AdPlaceholderProps = {
     format?: 'auto' | 'fluid' | 'rectangle';
     responsive?: boolean;
     style?: React.CSSProperties;
+    className?: string;
 };
 
-export default function AdPlaceholder({ slot, format = 'auto', responsive = true, style }: AdPlaceholderProps) {
+export default function AdPlaceholder({ slot, format = 'auto', responsive = true, style, className = '' }: AdPlaceholderProps) {
     return (
-        <div className="ad-container my-8 text-center overflow-hidden">
+        <div className={`ad-container my-8 text-center overflow-hidden ${className}`}>
             <span className="text-xs text-gray-600 uppercase tracking-wider mb-2 block">Publicidad</span>
             <ins
                 className="adsbygoogle block"
