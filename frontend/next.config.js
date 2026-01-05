@@ -1,5 +1,6 @@
 const nextConfig = {
     output: 'export',
+    distDir: 'hostinger_deploy',
     trailingSlash: true,
     images: {
         unoptimized: true,
